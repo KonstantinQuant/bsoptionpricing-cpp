@@ -1,0 +1,113 @@
+Group A - Output
+
+As for design decisions:
+
+I created an ABC Option class, that features everything the both option types have in common. (When creating this design, I had the coming american option in mind)
+Both option types can then implement custom functionality over the scope of the other option. 
+Functions both have in common, e.g. the getters and setters are then directly implemented in the ABC.
+Functions that have different implementations for option types are then implemented in each class specifically (e.g. calculating the price)
+All the array stuff, that can be used for mutations as well as the normal distribution I located in the common file, since the can both use it (it works on the base option type) but it is not functionality usual for an option.
+Futher design decisions on function level are defined in the documentations inline in the code.
+
+
+a)
+C= 2.13337 P= 5.84628
+C= 7.96557 P= 7.96557
+C= 0.204058 P= 4.07326
+C= 92.1757 P= 1.2475
+
+b)
+(Is only carried it out if put call parity is satisfied)
+Put-Price for Call 1: 5.84628
+Call-Price for Put 1: 2.13337
+
+c)
+Batch1-Call prices for (10, 60, 2) = s \in [10,60], s += 2
+7.792e-36
+1.64204e-29
+1.17207e-24
+8.11387e-21
+1.03991e-17
+3.76503e-15
+5.1436e-13
+3.25772e-11
+1.11246e-09
+2.29454e-08
+3.11926e-07
+2.99241e-06
+2.13896e-05
+0.000119024
+0.000534403
+0.00199417
+0.00633924
+0.0175282
+0.0429083
+0.0944125
+0.189181
+0.349151
+0.599432
+0.965684
+1.47106
+2.13337
+
+d)
+T \in meshArray(0.1, 0.6, 0.02), sig \in meshArray(0.1, 0.6, 0.02), K \in meshArray(10, 60, 2)
+Only applying modifier 0: (expiry time)
+0.761015 0.95726 1.14959 1.33762 1.52136 1.70096 1.87665 2.04867 2.21724 2.3826 2.54494 2.70447 2.86135 3.01575 3.1678 3.31764 3.4654 3.61117 3.75507 3.89717 4.03758 4.17637 4.3136 4.44935 4.58369
+Only applying modifier 1: (sig)
+1.00512 1.34665 1.69608 2.05047 2.40815 2.76806 3.12955 3.49214 3.85551 4.21942 4.58369 4.94816 5.31274 5.67732 6.04182 6.40618 6.77034 7.13425 7.49787 7.86114 8.22404 8.58653 8.94856 9.31013 9.67118
+Only applying modifier 2: (K)
+4.23862e-05 0.000281477 0.00123646 0.00407984 0.0109362 0.0250702 0.050914 0.0939355 0.160385 0.256973 0.390536 0.567717 0.794706 1.07704 1.41944 1.82579 2.29904 2.84128 3.45374 4.1369 4.89053 5.71383 6.60546 7.56367 8.58636 9.67118
+
+e)
+Provided testbatch call delta: 0.594629
+Provided testbatch put delta: -0.356601
+Provided testbatch call gamma: 0.0134936
+Provided testbatch put gamma: 0.0134936
+
+f)
+Batch1 call:
+Delta results: 6.53453e-35 for S: 10
+Delta results: 1.03818e-28 for S: 12
+Delta results: 5.78765e-24 for S: 14
+Delta results: 3.21073e-20 for S: 16
+Delta results: 3.36237e-17 for S: 18
+Delta results: 1.00986e-14 for S: 20
+Delta results: 1.15828e-12 for S: 22
+Delta results: 6.21896e-11 for S: 24
+Delta results: 1.81452e-09 for S: 26
+Delta results: 3.21847e-08 for S: 28
+Delta results: 3.78253e-07 for S: 30
+Delta results: 3.1508e-06 for S: 32
+Delta results: 1.96255e-05 for S: 34
+Delta results: 9.54406e-05 for S: 36
+Delta results: 0.000375376 for S: 38
+Delta results: 0.00122932 for S: 40
+Delta results: 0.00343462 for S: 42
+Delta results: 0.00835598 for S: 44
+Delta results: 0.0180128 for S: 46
+Delta results: 0.034923 for S: 48
+Delta results: 0.0616874 for S: 50
+Delta results: 0.100397 for S: 52
+Delta results: 0.152048 for S: 54
+Delta results: 0.216157 for S: 56
+Delta results: 0.290716 for S: 58
+Delta results: 0.372483 for S: 60
+
+g)
+Batch1 call
+meshArray(0.1, 0.6, 0.02), meshArray(0.1, 0.6, 0.02), meshArray(10, 60, 2)
+The modifiedmatrixpricer now accepts an optional argument return type, in this case the gamma, by the default the price.
+Only applying modifier 0: (T)
+0.0543961 0.0526001 0.0507179 0.0488893 0.0471648 0.0455589 0.0440706 0.042693 0.0414167 0.0402324 0.039131 0.0381042 0.0371446 0.0362457 0.0354015 0.034607 0.0338575 0.0331491 0.0324783 0.0318418 0.0312369 0.030661 0.0301119 0.0295876 0.0290862
+Only applying modifier 1: (sig)
+0.0804749 0.0690699 0.0602539 0.0533177 0.0477506 0.0431983 0.0394138 0.0362217 0.033495 0.03114 0.0290862 0.0272796 0.0256783 0.0242492 0.022966 0.0218074 0.020756 0.0197976 0.0189203 0.018114 0.0173706 0.0166827 0.0160443 0.0154503 0.014896
+Only applying modifier 2: (K)
+4.29684e-05 0.000165263 0.000451942 0.00097903 0.00179462 0.00290554 0.00427793 0.00584731 0.00753229 0.00924763 0.0109143 0.0124659 0.0138518 0.0150376 0.016004 0.0167446 0.0172635 0.0175725 0.0176886 0.0176323 0.0174259 0.0170917 0.0166518 0.0161269 0.0155359 0.014896
+
+h)
+Batch1 call
+Exact Delta: 0.372483
+Approximated Delta: 0.372483
+Exact Gamma: 0.0420428
+Approximated Gamma: 0.0420423
