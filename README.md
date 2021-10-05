@@ -1,2 +1,6 @@
-# bsoptionpricing-cpp
-Black-Scholes-Merton Option Pricing application written in C++, Konstantin Kuchenmeister
+# Black-Scholes-Merton Option Pricing Application 
+
+Author: Konstantin Kuchenmeister
+
+
+This project features a Black-Scholes-Merton Option Pricing Application for European as well as Perpetual American Options
