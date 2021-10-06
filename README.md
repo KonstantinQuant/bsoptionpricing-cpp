@@ -5,6 +5,16 @@ Author: Konstantin Kuchenmeister
 
 This project features a Black-Scholes-Merton Option Pricing Application for European as well as Perpetual American Options
 
+## Note: 
+Most of design decisions and best practices can be found inline in the code comments.
+The output.txt files for each group feature an exact analysis and document my design decisions.
+Most important code is in the Common.h files, an the respective Options class definitions:
+1. PlainEuropeanOption.h
+2. PlainEuropeanOption.cpp
+3. PerpetualAmericanOption.h
+4. PerpetualAmericanOption.cpp
+
+
 ## GroupA Overview:
 - BSM call and put pricing for European Options, with tests.
 - Put-call parity.
@@ -17,6 +27,3 @@ This project features a Black-Scholes-Merton Option Pricing Application for Euro
 ## GroupB Overview:
 - Everything from GroupA
 - Added support for American options, that can be expired at an arbitrary time before the expiry date.
-
-
-## Note: The output.txt files for each group feature an exact analysis and document my design decisions.
