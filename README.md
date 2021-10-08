@@ -26,4 +26,4 @@ Most important code is in the Common.h files, an the respective Options class de
 
 ## GroupB Overview:
 - Everything from GroupA
-- Added support for American options, that can be expired at an arbitrary time before the expiry date.
+- Added support for perpetual American options.
